@@ -1,0 +1,4 @@
+debian/tmp/usr/include/utempter.h
+debian/tmp/usr/lib/x86_64-linux-gnu/libutempter.a
+debian/tmp/usr/lib/x86_64-linux-gnu/libutempter.so
+debian/tmp/usr/share/man/man3/

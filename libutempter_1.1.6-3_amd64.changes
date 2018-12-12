@@ -1,0 +1,37 @@
+Format: 1.8
+Date: Thu, 18 Feb 2016 19:47:33 +0100
+Source: libutempter
+Binary: libutempter-dev libutempter0
+Built-For-Profiles: nobiarch nocheck nodoc
+Architecture: amd64
+Version: 1.1.6-3
+Distribution: unstable
+Urgency: medium
+Maintainer: Debian Krap Maintainers <debian-qt-kde@lists.debian.org>
+Changed-By: Maximiliano Curia <maxy@debian.org>
+Description:
+ libutempter-dev - privileged helper for utmp/wtmp updates (development)
+ libutempter0 - privileged helper for utmp/wtmp updates (runtime)
+Closes: 814647
+Changes:
+ libutempter (1.1.6-3) unstable; urgency=medium
+ .
+   * Team upload.
+   * Drop the postinst script, the files that were getting chowned are in a
+     different location now, no chown needed. (Closes: #814647) Thanks to
+     Andreas Beckmann for reporting.
+Checksums-Sha1:
+ a96c98fbd4e6314cd29f509f745753badb86c8b1 39304 libutempter-dev_1.1.6-3_amd64.deb
+ 33b3104467f18c4448776068791af20800f7f954 9772 libutempter0-dbgsym_1.1.6-3_amd64.deb
+ 543261fd50da60e05d6284434c33ef452dd2a23c 8772 libutempter0_1.1.6-3_amd64.deb
+ 4caad33896c237ab8cab4d03d125d1d347290414 5543 libutempter_1.1.6-3_amd64.buildinfo
+Checksums-Sha256:
+ f74f31c05acbcd101be6a52a555ea921ff9cc95d98ba30a740dcb415132900bf 39304 libutempter-dev_1.1.6-3_amd64.deb
+ 8fb3ebe0f6230e208f69e6b760f2a3954afba564eafc2c4f5a3075d8a2504821 9772 libutempter0-dbgsym_1.1.6-3_amd64.deb
+ 9cc8734bf120cc0df3498999e105463ef8d1400c2d91810a6e61c2c558324fcd 8772 libutempter0_1.1.6-3_amd64.deb
+ 61bf71f9aa6b96c4960133494dc280dfd2bc7a9032c4420d1db7220d43ea1db0 5543 libutempter_1.1.6-3_amd64.buildinfo
+Files:
+ 55dc18d7b1556935e6864a8e204fa9cc 39304 libdevel optional libutempter-dev_1.1.6-3_amd64.deb
+ 5aef6e98abf9e7da6172af31378da9f5 9772 debug optional libutempter0-dbgsym_1.1.6-3_amd64.deb
+ c92e9aa658294262b5a0535e8b924b67 8772 libs optional libutempter0_1.1.6-3_amd64.deb
+ 8769cdd279283af604e8dd2d8fbb75d9 5543 libs optional libutempter_1.1.6-3_amd64.buildinfo

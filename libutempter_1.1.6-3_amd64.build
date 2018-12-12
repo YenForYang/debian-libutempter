@@ -1,0 +1,137 @@
+ dpkg-buildpackage -D -us -uc -ui -b -Jauto -Pnobiarch,nocheck,nodoc
+dpkg-buildpackage: info: source package libutempter
+dpkg-buildpackage: info: source version 1.1.6-3
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Maximiliano Curia <maxy@debian.org>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --parallel --list-missing
+   dh_auto_clean -O--parallel -O--list-missing
+	make -j8 clean
+make[1]: Entering directory '/dev/shm/libutempter/libutempter-1.1.6'
+rm -f utempter libutempter.so libutempter.a iface.o iface.os core *~
+make[1]: Leaving directory '/dev/shm/libutempter/libutempter-1.1.6'
+   dh_clean -O--parallel -O--list-missing
+FAKEROOTKEY=374081220 LD_LIBRARY_PATH=:/opt/intel/lib/intel64_lin:/opt/intel/tbb/lib/intel64/gcc4.7 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules clean
+ debian/rules build
+dh build --parallel --list-missing
+   dh_update_autotools_config -O--parallel -O--list-missing
+   dh_auto_configure -O--parallel -O--list-missing
+   dh_auto_build -O--parallel -O--list-missing
+	make -j8
+make[1]: Entering directory '/dev/shm/libutempter/libutempter-1.1.6'
+icc -g -O2 -fdebug-prefix-map=/dev/shm/libutempter/libutempter-1.1.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe  -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu99 -W -Wall -Waggregate-return -Wcast-align -Wconversion -Wdisabled-optimization -Wmissing-declarations -Wmissing-format-attribute -Wmissing-noreturn -Wmissing-prototypes -Wpointer-arith -Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings -DLIBEXECDIR=\"/usr/lib/x86_64-linux-gnu\" -Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--relax  -Wl,-z,now,-stats  utempter.c -o utempter
+icc -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu99 -W -Wall -Waggregate-return -Wcast-align -Wconversion -Wdisabled-optimization -Wmissing-declarations -Wmissing-format-attribute -Wmissing-noreturn -Wmissing-prototypes -Wpointer-arith -Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings -DLIBEXECDIR=\"/usr/lib/x86_64-linux-gnu\" -g -O2 -fdebug-prefix-map=/dev/shm/libutempter/libutempter-1.1.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -c -fPIC iface.c -o iface.os
+icc -g -O2 -fdebug-prefix-map=/dev/shm/libutempter/libutempter-1.1.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe  -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu99 -W -Wall -Waggregate-return -Wcast-align -Wconversion -Wdisabled-optimization -Wmissing-declarations -Wmissing-format-attribute -Wmissing-noreturn -Wmissing-prototypes -Wpointer-arith -Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings -DLIBEXECDIR=\"/usr/lib/x86_64-linux-gnu\"  -c -o iface.o iface.c
+utempter.c(144): warning #1682: implicit conversion of a 64-bit integral type to a smaller integral type (potential portability problem)
+  	ut.ut_tv.tv_sec = tv.tv_sec;
+  	                ^
+
+utempter.c(145): warning #1682: implicit conversion of a 64-bit integral type to a smaller integral type (potential portability problem)
+  	ut.ut_tv.tv_usec = tv.tv_usec;
+  	                 ^
+
+xiar rv libutempter.a iface.o
+icc -Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--relax -shared \
+	-Wl,-soname,libutempter.so.0,--version-script=libutempter.map,-z,defs,-stats \
+	-lc iface.os -o libutempter.so 
+icc: warning #10415: specifying -lc before files may supersede the Intel(R) random generator library and may result in compilation issue
+xiar: executing 'ar'
+ar: creating libutempter.a
+a - /tmp/xiar_ipovaQlpv/iface.o
+ranlib libutempter.a
+x86_64-linux-gnu-ld: total time in link: 0.124584
+x86_64-linux-gnu-ld: total time in link: 0.110743
+make[1]: Leaving directory '/dev/shm/libutempter/libutempter-1.1.6'
+ fakeroot debian/rules binary
+dh binary --parallel --list-missing
+   dh_testroot -O--parallel -O--list-missing
+   dh_prep -O--parallel -O--list-missing
+   dh_installdirs -O--parallel -O--list-missing
+   dh_auto_install -O--parallel -O--list-missing
+	make -j8 install DESTDIR=/dev/shm/libutempter/libutempter-1.1.6/debian/tmp AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/dev/shm/libutempter/libutempter-1.1.6'
+mkdir -p /dev/shm/libutempter/libutempter-1.1.6/debian/tmp/usr/lib/x86_64-linux-gnu /dev/shm/libutempter/libutempter-1.1.6/debian/tmp/usr/lib/x86_64-linux-gnu/utempter \
+	/dev/shm/libutempter/libutempter-1.1.6/debian/tmp/usr/include /dev/shm/libutempter/libutempter-1.1.6/debian/tmp/usr/share/man/man3
+install -p -m2711 utempter /dev/shm/libutempter/libutempter-1.1.6/debian/tmp/usr/lib/x86_64-linux-gnu/utempter/
+install -p -m644 utempter.h /dev/shm/libutempter/libutempter-1.1.6/debian/tmp/usr/include/
+install -p -m755 libutempter.so /dev/shm/libutempter/libutempter-1.1.6/debian/tmp/usr/lib/x86_64-linux-gnu/libutempter.so.1.1.6
+install -p -m644 libutempter.a /dev/shm/libutempter/libutempter-1.1.6/debian/tmp/usr/lib/x86_64-linux-gnu/
+ln -s libutempter.so.1.1.6 /dev/shm/libutempter/libutempter-1.1.6/debian/tmp/usr/lib/x86_64-linux-gnu/libutempter.so.0
+ln -s libutempter.so.0 /dev/shm/libutempter/libutempter-1.1.6/debian/tmp/usr/lib/x86_64-linux-gnu/libutempter.so
+install -p -m644 utempter.3 /dev/shm/libutempter/libutempter-1.1.6/debian/tmp/usr/share/man/man3/
+for n in libutempter utempter_add_record utempter_remove_record \
+    utempter_remove_added_record utempter_set_helper; do \
+	ln -s utempter.3 /dev/shm/libutempter/libutempter-1.1.6/debian/tmp/usr/share/man/man3/$n.3; \
+done
+make[1]: Leaving directory '/dev/shm/libutempter/libutempter-1.1.6'
+   dh_install -O--parallel -O--list-missing
+dh_install: Please use dh_missing --list-missing/--fail-missing instead
+dh_install: This feature will be removed in compat 12.
+   dh_installdocs -O--parallel -O--list-missing
+   dh_installchangelogs -O--parallel -O--list-missing
+   dh_installexamples -O--parallel -O--list-missing
+   dh_installman -O--parallel -O--list-missing
+   dh_installcatalogs -O--parallel -O--list-missing
+   dh_installcron -O--parallel -O--list-missing
+   dh_installdebconf -O--parallel -O--list-missing
+   dh_installemacsen -O--parallel -O--list-missing
+   dh_installifupdown -O--parallel -O--list-missing
+   dh_installinfo -O--parallel -O--list-missing
+   dh_installinit -O--parallel -O--list-missing
+   dh_installmenu -O--parallel -O--list-missing
+   dh_installmime -O--parallel -O--list-missing
+   dh_installmodules -O--parallel -O--list-missing
+   dh_installlogcheck -O--parallel -O--list-missing
+   dh_installlogrotate -O--parallel -O--list-missing
+   dh_installpam -O--parallel -O--list-missing
+   dh_installppp -O--parallel -O--list-missing
+   dh_installudev -O--parallel -O--list-missing
+   dh_installgsettings -O--parallel -O--list-missing
+   dh_bugfiles -O--parallel -O--list-missing
+   dh_ucf -O--parallel -O--list-missing
+   dh_lintian -O--parallel -O--list-missing
+   dh_gconf -O--parallel -O--list-missing
+dh_gconf: Please migrate to dh_installgsettings; gconf + dh_gconf is scheduled for removal.
+   dh_icons -O--parallel -O--list-missing
+   dh_perl -O--parallel -O--list-missing
+   dh_usrlocal -O--parallel -O--list-missing
+   dh_link -O--parallel -O--list-missing
+   dh_installwm -O--parallel -O--list-missing
+   dh_installxfonts -O--parallel -O--list-missing
+   dh_strip_nondeterminism -O--parallel -O--list-missing
+   dh_compress -O--parallel -O--list-missing
+   debian/rules override_dh_fixperms
+make[1]: Entering directory '/dev/shm/libutempter/libutempter-1.1.6'
+dh_fixperms
+chown root:utmp debian/libutempter0/usr/lib/x86_64-linux-gnu/utempter/utempter
+chmod 2755 debian/libutempter0/usr/lib/x86_64-linux-gnu/utempter/utempter
+make[1]: Leaving directory '/dev/shm/libutempter/libutempter-1.1.6'
+   dh_missing -O--parallel -O--list-missing
+   dh_strip -O--parallel -O--list-missing
+   dh_makeshlibs -O--parallel -O--list-missing
+   dh_shlibdeps -O--parallel -O--list-missing
+dpkg-shlibdeps: warning: deprecated use of LD_LIBRARY_PATH with private library directory which interferes with cross-building, please use -l option instead
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/libutempter0/usr/lib/x86_64-linux-gnu/utempter/utempter debian/libutempter0/usr/lib/x86_64-linux-gnu/libutempter.so.1.1.6 were not linked against libdl.so.2 (they use none of the library's symbols)
+   dh_installdeb -O--parallel -O--list-missing
+   dh_gencontrol -O--parallel -O--list-missing
+   dh_md5sums -O--parallel -O--list-missing
+   dh_builddeb -O--parallel -O--list-missing
+dpkg-deb: building package 'libutempter-dev' in '../libutempter-dev_1.1.6-3_amd64.deb'.
+dpkg-deb: building package 'libutempter0' in '../libutempter0_1.1.6-3_amd64.deb'.
+dpkg-deb: building package 'libutempter0-dbgsym' in '../libutempter0-dbgsym_1.1.6-3_amd64.deb'.
+FAKEROOTKEY=535476570 LD_LIBRARY_PATH=:/opt/intel/lib/intel64_lin:/opt/intel/tbb/lib/intel64/gcc4.7 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules binary
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../libutempter_1.1.6-3_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+Now running lintian libutempter_1.1.6-3_amd64.changes ...
+W: libutempter0: hardening-no-pie usr/lib/x86_64-linux-gnu/utempter/utempter
+N: 1 tag overridden (1 warning)
+Finished running lintian.

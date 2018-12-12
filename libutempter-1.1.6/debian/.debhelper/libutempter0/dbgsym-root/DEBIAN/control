@@ -1,0 +1,13 @@
+Package: libutempter0-dbgsym
+Source: libutempter
+Version: 1.1.6-3
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Debian Krap Maintainers <debian-qt-kde@lists.debian.org>
+Installed-Size: 29
+Depends: libutempter0 (= 1.1.6-3)
+Section: debug
+Priority: optional
+Multi-Arch: same
+Description: debug symbols for libutempter0
+Build-Ids: 14bec922370ff27232f762ed01272df05c71dee2 541446602de83417da7d56c6263cdca05f1fa9b0
